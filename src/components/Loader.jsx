@@ -6,7 +6,7 @@ return(
 
 <div className="loader-text">
 
-DEV.
+ANITYA ANAND
 
 </div>
 
