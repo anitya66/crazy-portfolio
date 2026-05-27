@@ -10,6 +10,7 @@ padding-top:80px;
 
 .hero-left{
 flex:1;
+max-width:700px;
 
 }
 
@@ -117,9 +118,8 @@ justify-content:center;
 
 .glow-circle{
 
-height:350px;
-
-width:350px;
+height:320px;
+width:320px;
 
 border-radius:50%;
 
@@ -181,9 +181,17 @@ translateY(0);
 
 .hero{
 
-flex-direction:column;
+min-height:100vh;
 
-text-align:center;
+padding-top:140px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+gap:80px;
 
 }
 

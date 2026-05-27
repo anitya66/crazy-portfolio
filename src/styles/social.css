@@ -2,9 +2,10 @@
 
 position:fixed;
 
-left:40px;
+left:30px;
 
-top:50%;
+top:65%;
+
 transform:translateY(-50%);
 
 display:flex;
@@ -20,66 +21,50 @@ z-index:1000;
 .social a{
 
 padding:
-
-14px
-18px;
+14px 20px;
 
 background:
-
-rgba(
-255,
-255,
-255,
-0.05
-);
+rgba(255,255,255,0.05);
 
 backdrop-filter:
 blur(20px);
 
 border:
-
-1px solid
-rgba(
-255,
-255,
-255,
-0.08
-);
+1px solid rgba(255,255,255,0.08);
 
 border-radius:20px;
 
 transition:.3s;
+
+font-size:15px;
 
 }
 
 .social a:hover{
 
 transform:
-
-translateX(
-10px
-);
+translateX(10px);
 
 background:
-
-rgba(
-90,
-168,
-255,
-0.15
-);
+rgba(90,168,255,0.15);
 
 }
 
-@media(
-max-width:900px
-){
+@media(max-width:1200px){
 
 .social{
 
-left:16px;
+left:12px;
 
-bottom:20px;
+}
+
+}
+
+@media(max-width:900px){
+
+.social{
+
+display:none;
 
 }
 
