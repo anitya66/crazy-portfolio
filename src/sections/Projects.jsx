@@ -1,95 +1,42 @@
 import projects from "../data/projects"
 
-import ProjectCard
-from "../components/ProjectCard"
+import ProjectCard from "../components/ProjectCard"
 
 function Projects(){
 
-return(
+  return(
 
-<section
-id="projects"
->
+    <section id="projects">
 
-<h1
-className="section-title"
->
+      <h1 className="section-title">
 
-Projects
+        Featured Project
 
-</h1>
+      </h1>
 
-{
+      <div className="project-grid">
 
-projects.length===0
+        {
 
-?
+          projects.map((project, index) => (
 
-(
+            <ProjectCard
 
-<div
-className="empty-projects"
->
+              key={index}
 
-<h2>
+              project={project}
 
-Projects Coming Soon
+            />
 
-</h2>
+          ))
 
-<p>
+        }
 
-Building something worth showcasing.
+      </div>
 
-</p>
+    </section>
 
-</div>
-
-)
-
-:
-
-(
-
-<div
-className="project-grid"
->
-
-{
-
-projects.map(
-
-(project,index)=>(
-
-<ProjectCard
-
-key={index}
-
-title={
-project.title
-}
-
-tech={
-project.tech
-}
-
-/>
-
-)
-
-)
-
-}
-
-</div>
-
-)
-
-}
-
-</section>
-
-)
+  )
 
 }
 

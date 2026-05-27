@@ -1,29 +1,77 @@
-function ProjectCard({
+import "../styles/projects.css"
 
-title,
-tech
+function ProjectCard({ project }) {
 
-}){
+  return (
 
-return(
+    <div className="project-card">
 
-<div className="project-card">
+      <div className="project-image">
 
-<h2>
+        <img
+          src={project.image}
+          alt={project.title}
+        />
 
-{title}
+      </div>
 
-</h2>
+      <div className="project-content">
 
-<p>
+        <div className="project-top">
 
-{tech}
+          <div>
 
-</p>
+            <h2>{project.title}</h2>
 
-</div>
+            <p className="project-subtitle">
+              {project.subtitle}
+            </p>
 
-)
+          </div>
+
+          <span className="project-status">
+            {project.status}
+          </span>
+
+        </div>
+
+        <p className="project-description">
+          {project.description}
+        </p>
+
+        <div className="tech-stack">
+
+          {project.tech.map((tech, index) => (
+
+            <span key={index}>
+              {tech}
+            </span>
+
+          ))}
+
+        </div>
+
+        <div className="project-buttons">
+
+          <a
+            href={project.github}
+            target="_blank"
+            rel="noreferrer"
+          >
+            GitHub
+          </a>
+
+          <button disabled>
+            Live Demo Soon
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  )
 
 }
 
