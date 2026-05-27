@@ -2,17 +2,15 @@
 
 position:fixed;
 
-left:30px;
+left:20px;
 
-top:65%;
-
-transform:translateY(-50%);
+bottom:40px;
 
 display:flex;
 
 flex-direction:column;
 
-gap:18px;
+gap:16px;
 
 z-index:1000;
 
@@ -20,8 +18,7 @@ z-index:1000;
 
 .social a{
 
-padding:
-14px 20px;
+padding:12px 18px;
 
 background:
 rgba(255,255,255,0.05);
