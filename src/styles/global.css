@@ -1,0 +1,66 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:#070707;
+  color:white;
+
+  font-family:
+ "Space Grotesk",
+ sans-serif;
+
+  overflow-x:hidden;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+ul{
+  list-style:none;
+}
+
+button{
+  cursor:pointer;
+}
+
+section{
+  min-height:100vh;
+
+  padding:
+  120px
+  8%;
+}
+::selection{
+
+background:
+#5aa8ff;
+
+color:
+white;
+
+}
+
+body{
+
+line-height:
+1.5;
+
+}
+
+h1,
+h2,
+h3{
+
+letter-spacing:
+-2px;
+
+}
