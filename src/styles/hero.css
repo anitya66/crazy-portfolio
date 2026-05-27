@@ -29,16 +29,19 @@ margin-bottom:20px;
 font-size:
 
 clamp(
-4rem,
-10vw,
-8rem
+3.5rem,
+7vw,
+6.5rem
 );
 
 line-height:
-0.95;
+1;
 
 margin-bottom:
 30px;
+
+max-width:
+700px;
 
 }
 

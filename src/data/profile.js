@@ -1,13 +1,13 @@
 const profile = {
 
 name:
-"Anitya Anand",
+"ANITYA ANAND",
 
 role:
 "Java Full Stack Developer",
 
 tagline:
-"Backend Mind. Frontend Craft.",
+"Full Stack Developer.",
 
 description:
 "I build modern web applications using Java, Spring Boot, React and clean architecture principles.",
