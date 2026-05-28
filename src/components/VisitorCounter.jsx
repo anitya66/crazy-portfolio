@@ -11,13 +11,13 @@ setCount
 
 useEffect(()=>{
 
-const updateCounter=async()=>{
+const fetchViews=async()=>{
 
 try{
 
 const response=await fetch(
 
-`https://api.countapi.xyz/hit/crazyportfolioanitya/${Date.now()}`
+"https://api.countapi.xyz/hit/anitya-portfolio/livevisits"
 
 )
 
@@ -37,7 +37,7 @@ setCount("0")
 
 }
 
-updateCounter()
+fetchViews()
 
 },[])
 
@@ -53,9 +53,7 @@ return(
 
 <p>
 
-{count}
-
-</p>
+{count}</p>
 
 </div>
 
