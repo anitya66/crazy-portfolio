@@ -13,6 +13,9 @@ import Footer from "./layout/Footer"
 import Loader from "./components/Loader"
 import ScrollProgress from "./components/ScrollProgress"
 import config from "./data/config"
+import Achievements from "./sections/Achievements"
+
+import "./styles/achievement.css"
 
 import "./styles/progress.css"
 
@@ -78,6 +81,9 @@ config.showVisitor
 
 <Projects/>
 
+</Reveal>
+<Reveal>
+  <Achievements/>
 </Reveal>
 <Reveal>
 <Contact/>
