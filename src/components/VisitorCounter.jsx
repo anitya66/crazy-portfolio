@@ -7,31 +7,35 @@ function VisitorCounter(){
 const[
 views,
 setViews
-]=useState(null)
+]=useState("...")
 
 useEffect(()=>{
 
-fetch(
+const updateCounter=async()=>{
 
-"https://api.countapi.xyz/hit/anitya-portfolio/visits"
+try{
+
+const response=await fetch(
+
+"https://api.countapi.xyz/hit/crazy-portfolio-chi/vercel"
 
 )
 
-.then(
-(res)=>res.json()
-)
-
-.then(
-(data)=>{
+const data=await response.json()
 
 setViews(data.value)
 
 }
-)
 
-.catch(
-(err)=>console.log(err)
-)
+catch(error){
+
+console.log(error)
+
+}
+
+}
+
+updateCounter()
 
 },[])
 
@@ -47,18 +51,7 @@ return(
 
 <p>
 
-{
-
-views
-?
-
-views
-
-:
-
-"..."
-
-}
+{views}
 
 </p>
 
