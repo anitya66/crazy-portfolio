@@ -14,6 +14,9 @@ import Loader from "./components/Loader"
 import ScrollProgress from "./components/ScrollProgress"
 import config from "./data/config"
 import Achievements from "./sections/Achievements"
+import MouseGlow from "./components/MouseGlow"
+
+import "./styles/mouseglow.css"
 
 import "./styles/achievement.css"
 
@@ -51,6 +54,7 @@ config.showLoader
 }
 
 <Background/>
+<MouseGlow/>
 
 <Navbar/>
 
@@ -67,24 +71,21 @@ config.showVisitor
 }
 
 <Reveal>
-
 <Hero/>
-
 </Reveal>
-<Reveal>
 
+<Reveal>
 <Skills/>
-
 </Reveal>
 
 <Reveal>
-
 <Projects/>
-
 </Reveal>
+
 <Reveal>
   <Achievements/>
 </Reveal>
+
 <Reveal>
 <Contact/>
 </Reveal>

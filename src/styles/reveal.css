@@ -3,26 +3,35 @@
 opacity:0;
 
 transform:
+translateY(100px)
+scale(.96);
 
-translateY(
-100px
-);
+filter:
+blur(12px);
 
 transition:
+all 1.2s cubic-bezier(
+0.16,
+1,
+0.3,
+1
+);
 
-all
-1s;
+will-change:
+transform,
+opacity;
 
 }
 
-.show{
+.reveal.show{
 
 opacity:1;
 
 transform:
+translateY(0)
+scale(1);
 
-translateY(
-0
-);
+filter:
+blur(0);
 
 }
