@@ -1,57 +1,66 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState }
+
+from "react"
 
 function VisitorCounter(){
 
 const[
-count,
-setCount
-]=useState(0)
+views,
+setViews
+]=useState(null)
 
 useEffect(()=>{
 
-const current=
+fetch(
 
-localStorage.getItem(
-"visitorCount"
+"https://api.countapi.xyz/hit/anitya-portfolio/visits"
+
 )
 
-if(current){
-
-const newCount=
-
-Number(current)+1
-
-localStorage.setItem(
-"visitorCount",
-newCount
+.then(
+(res)=>res.json()
 )
 
-setCount(
-newCount
-)
+.then(
+(data)=>{
 
-}else{
-
-localStorage.setItem(
-"visitorCount",
-1
-)
-
-setCount(
-1
-)
+setViews(data.value)
 
 }
+)
+
+.catch(
+(err)=>console.log(err)
+)
 
 },[])
 
 return(
 
-<div
-className="visitor"
->
+<div className="visitor">
 
-👁 {count}
+<span>
+
+👁
+
+</span>
+
+<p>
+
+{
+
+views
+?
+
+views
+
+:
+
+"..."
+
+}
+
+</p>
 
 </div>
 

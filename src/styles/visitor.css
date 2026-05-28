@@ -2,32 +2,70 @@
 
 position:fixed;
 
-right:40px;
+right:24px;
 
-bottom:40px;
+bottom:24px;
+
+display:flex;
+
+align-items:center;
+
+gap:10px;
 
 padding:
+16px 24px;
 
-16px
-24px;
+border-radius:24px;
 
 background:
+rgba(255,255,255,.05);
 
-rgba(
-255,
-255,
-255,
-0.05
-);
+border:
+1px solid rgba(255,255,255,.08);
 
 backdrop-filter:
+blur(12px);
 
-blur(20px);
+z-index:1000;
 
-border-radius:20px;
+font-weight:600;
 
 font-size:18px;
 
-z-index:1000;
+transition:
+all .35s ease;
+
+}
+
+.visitor:hover{
+
+transform:
+translateY(-4px);
+
+background:
+rgba(255,255,255,.08);
+
+}
+
+.visitor span{
+
+font-size:20px;
+
+}
+
+@media(max-width:768px){
+
+.visitor{
+
+right:16px;
+
+bottom:16px;
+
+padding:
+14px 18px;
+
+font-size:16px;
+
+}
 
 }

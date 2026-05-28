@@ -16,6 +16,9 @@ import config from "./data/config"
 import Achievements from "./sections/Achievements"
 import MouseGlow from "./components/MouseGlow"
 import CustomCursor from "./components/CustomCursor"
+import Stats from "./sections/Stats"
+
+import "./styles/stats.css"
 
 import "./styles/cursor.css"
 
@@ -92,6 +95,10 @@ config.showVisitor
 
 <Reveal>
   <Achievements/>
+</Reveal>
+
+<Reveal>
+  <Stats/>
 </Reveal>
 
 <Reveal>

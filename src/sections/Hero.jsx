@@ -1,5 +1,9 @@
 import profile from "../data/profile"
 
+import { TypeAnimation }
+
+from "react-type-animation"
+
 function Hero(){
 
 return(
@@ -30,6 +34,34 @@ className="hero"
 )}
 
 </h1>
+
+<TypeAnimation
+
+sequence={[
+
+"Java Full Stack Developer",
+2000,
+
+"React Frontend Developer",
+2000,
+
+"Spring Boot Backend Developer",
+2000,
+
+"DSA Enthusiast",
+2000
+
+]}
+
+wrapper="h2"
+
+speed={40}
+
+repeat={Infinity}
+
+className="hero-role"
+
+/>
 
 <p className="hero-desc">
 
@@ -76,12 +108,10 @@ LinkedIn
 </button>
 
 </a>
+
 <a
-
 href={profile.resume}
-
 target="_blank"
-
 >
 
 <button>
