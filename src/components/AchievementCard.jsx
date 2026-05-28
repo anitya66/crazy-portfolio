@@ -12,7 +12,7 @@ function AchievementCard({ item }) {
 
         <p>{item.subtitle}</p>
 
-        <span>{item.username}</span>
+       
 
         <a
           href={item.link}
