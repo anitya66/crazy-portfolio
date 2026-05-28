@@ -1,6 +1,27 @@
-import { useEffect, useState }
+import {
+
+doc,
+getDoc,
+setDoc,
+updateDoc,
+increment
+
+}
+
+from "firebase/firestore"
+
+import {
+
+useEffect,
+useState
+
+}
 
 from "react"
+
+import { db }
+
+from "../firebase"
 
 function VisitorCounter(){
 
@@ -11,27 +32,74 @@ setCount
 
 useEffect(()=>{
 
-fetch(
+const updateVisitorCount=async()=>{
 
-"https://api.countapi.xyz/hit/anityaportfolio/live"
+try{
 
+const counterRef=
+
+doc(
+db,
+"portfolio",
+"visitors"
 )
 
-.then(
-(res)=>res.json()
-)
+const counterSnap=
 
-.then(
-(data)=>{
+await getDoc(counterRef)
 
-setCount(data.value)
+if(counterSnap.exists()){
+
+await updateDoc(
+
+counterRef,
+
+{
+
+count:
+increment(1)
 
 }
+
 )
 
-.catch(
-(err)=>console.log(err)
+const updatedSnap=
+
+await getDoc(counterRef)
+
+setCount(
+updatedSnap.data().count
 )
+
+}
+
+else{
+
+await setDoc(
+
+counterRef,
+
+{
+
+count:1
+
+}
+
+)
+
+setCount(1)
+
+}
+
+}catch(error){
+
+console.log(error)
+
+}
+
+}
+
+updateVisitorCount()
 
 },[])
 
