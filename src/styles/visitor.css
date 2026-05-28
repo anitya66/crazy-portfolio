@@ -6,48 +6,49 @@ right:22px;
 
 bottom:22px;
 
+display:flex;
+
+align-items:center;
+
+gap:10px;
+
+padding:
+14px 18px;
+
+border-radius:999px;
+
+background:
+rgba(255,255,255,.05);
+
+border:
+1px solid rgba(255,255,255,.08);
+
+backdrop-filter:
+blur(12px);
+
 z-index:1000;
+
+font-size:16px;
+
+font-weight:600;
 
 transition:
 all .3s ease;
 
 }
 
-.visitor img{
-
-height:40px;
-
-border-radius:999px;
-
-opacity:.92;
-
-box-shadow:
-0 10px 25px rgba(0,0,0,.25);
-
-}
-
 .visitor:hover{
 
 transform:
-translateY(-3px)
-scale(1.03);
+translateY(-3px);
+
+background:
+rgba(255,255,255,.08);
 
 }
 
-@media(max-width:768px){
+.visitor span{
 
-.visitor{
-
-right:14px;
-
-bottom:14px;
-
-}
-
-.visitor img{
-
-height:36px;
-
-}
+font-size:18px;
 
 }

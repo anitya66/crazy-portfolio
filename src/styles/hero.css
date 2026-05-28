@@ -246,13 +246,13 @@ min-height:50px;
 
 .hero{
 
-flex-direction:column;
+min-height:100vh;
 
-justify-content:center;
+display:flex;
 
-text-align:center;
+justify-content:space-between;
 
-gap:60px;
+align-items:center;
 
 padding-top:140px;
 
