@@ -22,6 +22,12 @@ linkedin:
 resume:
 "/resume.pdf",
 
+email:
+"anityaanand8051@gmail.com",
+
+whatsapp:
+"https://wa.me/918051578466",
+
 visitorCount:
 true
 

@@ -2,52 +2,99 @@ import profile from "../data/profile"
 
 function Contact(){
 
-return(
+  return(
 
-<section
-id="contact"
->
+    <section id="contact">
 
-<h1
-className="section-title"
->
+      <h1 className="section-title">
 
-Let's Build Something
+        Let's Connect
 
-</h1>
+      </h1>
 
-<p className="contact-text">
+      <p className="contact-subtitle">
 
-Open to opportunities,
-collaboration and projects.
+        Open for opportunities,
+        collaboration and building
+        impactful products.
 
-</p>
+      </p>
 
-<div className="contact-buttons">
+      <div className="contact-grid">
 
-<a
-href={profile.linkedin}
-target="_blank"
->
+        <div className="contact-card">
 
-LinkedIn
+          <div className="contact-glow"></div>
 
-</a>
+          <h2>Email</h2>
 
-<a
-href={profile.github}
-target="_blank"
->
+          <p>
+            Let's discuss projects,
+            opportunities and ideas.
+          </p>
 
-GitHub
+          <a
+            href={`mailto:${profile.email}`}
+          >
 
-</a>
+            Send Mail
+
+          </a>
+
+        </div>
+
+        <div className="contact-card">
+
+          <div className="contact-glow whatsapp"></div>
+
+          <h2>WhatsApp</h2>
+
+          <p>
+            Quick communication
+            and direct contact.
+          </p>
+
+          <a
+            href={profile.whatsapp}
+            target="_blank"
+            rel="noreferrer"
+          >
+
+            Chat Now
+
+          </a>
+
+
+        </div>
+        <div className="contact-card">
+
+  <div className="contact-glow linkedin"></div>
+
+  <h2>LinkedIn</h2>
+
+  <p>
+    Connect professionally
+    and explore my developer
+    journey.
+  </p>
+
+  <a
+    href={profile.linkedin}
+    target="_blank"
+    rel="noreferrer"
+  >
+
+    View Profile
+
+  </a>
 
 </div>
 
-</section>
+      </div>
 
-)
+    </section>
+
+  )
 
 }
 
