@@ -1,75 +1,59 @@
-import "../styles/projects.css"
+import TiltCard from "./TiltCard"
 
 function ProjectCard({ project }) {
 
   return (
 
-    <div className="project-card">
+    <TiltCard>
 
-      <div className="project-image">
+      <div className="project-card">
 
         <img
           src={project.image}
           alt={project.title}
+          className="project-image"
         />
 
-      </div>
+        <div className="project-content">
 
-      <div className="project-content">
+          <h3>
+            {project.title}
+          </h3>
 
-        <div className="project-top">
+          <p>
+            {project.description}
+          </p>
 
-          <div>
+          <div className="project-tech">
 
-            <h2>{project.title}</h2>
+            {
+              project.tech.map((tech, index) => (
 
-            <p className="project-subtitle">
-              {project.subtitle}
-            </p>
+                <span key={index}>
+                  {tech}
+                </span>
+
+              ))
+            }
 
           </div>
-
-          <span className="project-status">
-            {project.status}
-          </span>
-
-        </div>
-
-        <p className="project-description">
-          {project.description}
-        </p>
-
-        <div className="tech-stack">
-
-          {project.tech.map((tech, index) => (
-
-            <span key={index}>
-              {tech}
-            </span>
-
-          ))}
-
-        </div>
-
-        <div className="project-buttons">
 
           <a
             href={project.github}
             target="_blank"
             rel="noreferrer"
+            className="project-btn"
           >
-            GitHub
-          </a>
 
-          <button disabled>
-            Live Demo Soon
-          </button>
+            View Project
+
+          </a>
 
         </div>
 
       </div>
 
-    </div>
+    </TiltCard>
 
   )
 

@@ -1,0 +1,12 @@
+.tilt-card{
+
+transform-style:
+preserve-3d;
+
+transition:
+transform .25s ease;
+
+will-change:
+transform;
+
+}

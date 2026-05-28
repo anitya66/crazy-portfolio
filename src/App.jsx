@@ -16,6 +16,10 @@ import config from "./data/config"
 import Achievements from "./sections/Achievements"
 import MouseGlow from "./components/MouseGlow"
 
+import "./styles/tilt.css"
+
+import "./styles/magnetic.css"
+
 import "./styles/mouseglow.css"
 
 import "./styles/achievement.css"

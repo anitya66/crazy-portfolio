@@ -1,4 +1,5 @@
 import profile from "../data/profile"
+import MagneticButton from "../components/MagneticButton"
 
 function Contact(){
 
@@ -33,13 +34,15 @@ function Contact(){
             opportunities and ideas.
           </p>
 
-          <a
-            href={`mailto:${profile.email}`}
-          >
+          <MagneticButton
 
-            Send Mail
+href={`mailto:${profile.email}`}
 
-          </a>
+>
+
+Send Mail
+
+</MagneticButton>
 
         </div>
 
@@ -54,15 +57,15 @@ function Contact(){
             and direct contact.
           </p>
 
-          <a
-            href={profile.whatsapp}
-            target="_blank"
-            rel="noreferrer"
-          >
+          <MagneticButton
 
-            Chat Now
+href={profile.whatsapp}
 
-          </a>
+>
+
+Chat Now
+
+</MagneticButton>
 
 
         </div>
@@ -78,15 +81,15 @@ function Contact(){
     journey.
   </p>
 
-  <a
-    href={profile.linkedin}
-    target="_blank"
-    rel="noreferrer"
-  >
+  <MagneticButton
 
-    View Profile
+href={profile.linkedin}
 
-  </a>
+>
+
+View Profile
+
+</MagneticButton>
 
 </div>
 

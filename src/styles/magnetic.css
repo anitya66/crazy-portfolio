@@ -1,0 +1,15 @@
+.magnetic-btn{
+
+transition:
+transform .2s ease;
+
+will-change:
+transform;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+}
