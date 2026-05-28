@@ -1,59 +1,16 @@
-import { useEffect, useState }
-
-from "react"
-
 function VisitorCounter(){
-
-const[
-count,
-setCount
-]=useState("...")
-
-useEffect(()=>{
-
-const fetchViews=async()=>{
-
-try{
-
-const response=await fetch(
-
-"https://api.countapi.xyz/hit/anitya-portfolio/livevisits"
-
-)
-
-const data=await response.json()
-
-setCount(data.value)
-
-}
-
-catch(error){
-
-console.log(error)
-
-setCount("0")
-
-}
-
-}
-
-fetchViews()
-
-},[])
 
 return(
 
 <div className="visitor">
 
-<span>
+<img
 
-👁
+src="https://api.visitorbadge.io/api/combined?path=https%3A%2F%2Fcrazy-portfolio-chi.vercel.app%2F&countColor=%238B5CF6&style=flat"
 
-</span>
+alt="visitor counter"
 
-<p>
-
-{count}</p>
+/>
 
 </div>
 
