@@ -7,31 +7,37 @@ function VisitorCounter(){
 const[
 count,
 setCount
-]=useState(0)
+]=useState("...")
 
 useEffect(()=>{
 
-fetch(
+const updateCounter=async()=>{
 
-"https://api.countapi.xyz/hit/crazy-portfolio/visitor"
+try{
+
+const response=await fetch(
+
+`https://api.countapi.xyz/hit/crazyportfolioanitya/${Date.now()}`
 
 )
 
-.then(
-(res)=>res.json()
-)
-
-.then(
-(data)=>{
+const data=await response.json()
 
 setCount(data.value)
 
 }
-)
 
-.catch(
-(err)=>console.log(err)
-)
+catch(error){
+
+console.log(error)
+
+setCount("0")
+
+}
+
+}
+
+updateCounter()
 
 },[])
 
