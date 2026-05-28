@@ -27,10 +27,10 @@ const y =
 e.clientY - rect.top
 
 const rotateX =
--(y - rect.height/2) / 18
+-(y - rect.height/2) / 40
 
 const rotateY =
-(x - rect.width/2) / 18
+(x - rect.width/2) / 40
 
 card.style.transform =
 

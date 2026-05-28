@@ -14,25 +14,25 @@ function Projects(){
 
       </h1>
 
-      <div className="project-grid">
+      <div className="projects-slider">
 
-        {
+{
 
-          projects.map((project, index) => (
+projects.map((project,index)=>(
 
-            <ProjectCard
+<ProjectCard
 
-              key={index}
+key={index}
 
-              project={project}
+project={project}
 
-            />
+/>
 
-          ))
+))
 
-        }
+}
 
-      </div>
+</div>
 
     </section>
 

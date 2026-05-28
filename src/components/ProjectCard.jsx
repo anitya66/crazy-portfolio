@@ -1,12 +1,10 @@
-import TiltCard from "./TiltCard"
-
 function ProjectCard({ project }) {
 
   return (
 
-    <TiltCard>
+    <div className="project-card">
 
-      <div className="project-card">
+      <div className="project-image-wrapper">
 
         <img
           src={project.image}
@@ -14,29 +12,51 @@ function ProjectCard({ project }) {
           className="project-image"
         />
 
-        <div className="project-content">
+      </div>
+
+      <div className="project-content">
+
+        <div className="project-top">
 
           <h3>
             {project.title}
           </h3>
 
-          <p>
-            {project.description}
-          </p>
+          <span className="project-status">
 
-          <div className="project-tech">
+            IN PROGRESS
 
-            {
-              project.tech.map((tech, index) => (
+          </span>
 
-                <span key={index}>
-                  {tech}
-                </span>
+        </div>
 
-              ))
-            }
+        <h4>
 
-          </div>
+          Real-Time Traffic Emergency System
+
+        </h4>
+
+        <p>
+          {project.description}
+        </p>
+
+        <div className="project-tech">
+
+          {
+            project.tech.map((tech, index) => (
+
+              <span key={index}>
+
+                {tech}
+
+              </span>
+
+            ))
+          }
+
+        </div>
+
+        <div className="project-buttons">
 
           <a
             href={project.github}
@@ -45,7 +65,16 @@ function ProjectCard({ project }) {
             className="project-btn"
           >
 
-            View Project
+            GitHub
+
+          </a>
+
+          <a
+            href="#"
+            className="project-btn secondary-btn"
+          >
+
+            Live Demo Soon
 
           </a>
 
@@ -53,7 +82,7 @@ function ProjectCard({ project }) {
 
       </div>
 
-    </TiltCard>
+    </div>
 
   )
 

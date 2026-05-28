@@ -15,6 +15,9 @@ import ScrollProgress from "./components/ScrollProgress"
 import config from "./data/config"
 import Achievements from "./sections/Achievements"
 import MouseGlow from "./components/MouseGlow"
+import CustomCursor from "./components/CustomCursor"
+
+import "./styles/cursor.css"
 
 import "./styles/tilt.css"
 
@@ -59,6 +62,7 @@ config.showLoader
 
 <Background/>
 <MouseGlow/>
+<CustomCursor/>
 
 <Navbar/>
 
