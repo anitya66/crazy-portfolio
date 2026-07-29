@@ -1,128 +1,67 @@
+import { useEffect, useState } from "react";
 import {
+  doc,
+  getDoc,
+  updateDoc,
+  increment,
+  setDoc,
+  onSnapshot,
+} from "firebase/firestore";
 
-doc,
-getDoc,
-setDoc,
-updateDoc,
-increment
+import { db } from "../firebase";
 
+function VisitorCounter() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    const counterRef = doc(db, "visitors", "visitors");
+
+    const initialize = async () => {
+      try {
+        const snap = await getDoc(counterRef);
+
+        if (!snap.exists()) {
+          await setDoc(counterRef, {
+            count: 0,
+          });
+        }
+
+        const counted = sessionStorage.getItem(
+          "portfolio_visitor"
+        );
+
+        if (!counted) {
+          await updateDoc(counterRef, {
+            count: increment(1),
+          });
+
+          sessionStorage.setItem(
+            "portfolio_visitor",
+            "true"
+          );
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    initialize();
+
+    const unsubscribe = onSnapshot(counterRef, (snapshot) => {
+      if (snapshot.exists()) {
+        setCount(snapshot.data().count);
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  return (
+    <div className="visitor">
+      <span>👁</span>
+      <p>{count.toLocaleString()}</p>
+    </div>
+  );
 }
 
-from "firebase/firestore"
-
-import {
-
-useEffect,
-useState
-
-}
-
-from "react"
-
-import { db }
-
-from "../firebase"
-
-function VisitorCounter(){
-
-const[
-count,
-setCount
-]=useState(0)
-
-useEffect(()=>{
-
-const updateVisitorCount=async()=>{
-
-try{
-
-const counterRef=
-
-doc(
-db,
-"portfolio",
-"visitors"
-)
-
-const counterSnap=
-
-await getDoc(counterRef)
-
-if(counterSnap.exists()){
-
-await updateDoc(
-
-counterRef,
-
-{
-
-count:
-increment(1)
-
-}
-
-)
-
-const updatedSnap=
-
-await getDoc(counterRef)
-
-setCount(
-updatedSnap.data().count
-)
-
-}
-
-else{
-
-await setDoc(
-
-counterRef,
-
-{
-
-count:1
-
-}
-
-)
-
-setCount(1)
-
-}
-
-}catch(error){
-
-console.log(error)
-
-}
-
-}
-
-updateVisitorCount()
-
-},[])
-
-return(
-
-<div className="visitor">
-
-<span>
-
-👁
-
-</span>
-
-<p>
-
-{count}
-
-</p>
-
-</div>
-
-)
-
-}
-
-export default VisitorCounter
+export default VisitorCounter;

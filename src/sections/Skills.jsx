@@ -1,60 +1,25 @@
-import skills from "../data/skills"
+import skills from "../data/skills";
+import SkillCard from "../components/SkillCard";
 
-import SkillCard from
-"../components/SkillCard"
+function Skills() {
+  return (
+    <section id="skills">
+      <h2 className="section-title">
+        Skills & Technologies
+      </h2>
 
-function Skills(){
-
-return(
-
-<section
-id="skills"
->
-
-<h2
-className="section-title"
->
-
-Skills
-
-</h2>
-
-<div
-className="skills-grid"
->
-
-{
-
-skills.map(
-
-(skill,index)=>(
-
-<SkillCard
-
-key={index}
-
-title={
-skill.title
+      <div className="skills-grid">
+        {skills.map((skill) => (
+          <SkillCard
+            key={skill.title}
+            title={skill.title}
+            icon={skill.icon}
+            technologies={skill.technologies}
+          />
+        ))}
+      </div>
+    </section>
+  );
 }
 
-level={
-skill.level
-}
-
-/>
-
-)
-
-)
-
-}
-
-</div>
-
-</section>
-
-)
-
-}
-
-export default Skills
+export default Skills;

@@ -1,31 +1,15 @@
-import { initializeApp }
-
-from "firebase/app"
-
-import {
-
-getFirestore
-
-}
-
-from "firebase/firestore"
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
+  apiKey: "AIzaSyCpUnCtIyQdBObUCt9i_s0pJsBbHxR0UT8",
+  authDomain: "crazy-portfolio-3d741.firebaseapp.com",
+  projectId: "crazy-portfolio-3d741",
+  storageBucket: "crazy-portfolio-3d741.firebasestorage.app",
+  messagingSenderId: "850863711941",
+  appId: "1:850863711941:web:bcb635aeb436dbd29132ac",
+};
 
-apiKey: "AIzaSyBBur40ihpUuFoGlfo7yd3gkKbIslNGYs",
+const app = initializeApp(firebaseConfig);
 
-authDomain: "crazy-portfolio-abdf4.firebaseapp.com",
-
-projectId: "crazy-portfolio-abdf4",
-
-storageBucket: "crazy-portfolio-abdf4.firebasestorage.app",
-
-messagingSenderId: "166559748559",
-
-appId: "1:166559748559:web:0dd71d2b3a8b5fccfb42ba"
-
-}
-
-const app = initializeApp(firebaseConfig)
-
-export const db = getFirestore(app)
+export const db = getFirestore(app);

@@ -1,43 +1,21 @@
-import projects from "../data/projects"
+import projects from "../data/projects";
+import ProjectCard from "../components/ProjectCard";
 
-import ProjectCard from "../components/ProjectCard"
-
-function Projects(){
-
-  return(
-
+function Projects() {
+  return (
     <section id="projects">
+      <h1 className="section-title">Featured Projects</h1>
 
-      <h1 className="section-title">
-
-        Featured Project
-
-      </h1>
-
-      <div className="projects-slider">
-
-{
-
-projects.map((project,index)=>(
-
-<ProjectCard
-
-key={index}
-
-project={project}
-
-/>
-
-))
-
-}
-
-</div>
-
+      <div className="projects-container">
+        {projects.map((project) => (
+          <ProjectCard
+            key={project.title}
+            project={project}
+          />
+        ))}
+      </div>
     </section>
-
-  )
-
+  );
 }
 
-export default Projects
+export default Projects;

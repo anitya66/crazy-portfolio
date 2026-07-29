@@ -1,30 +1,21 @@
-function SkillCard({
+function SkillCard({ title, icon, technologies }) {
+  return (
+    <div className="skill-card">
+      <div className="skill-header">
+        <span className="skill-icon">{icon}</span>
 
-title,
-level
+        <h3>{title}</h3>
+      </div>
 
-}){
-
-return(
-
-<div className="skill-card">
-
-<h3>
-
-{title}
-
-</h3>
-
-<p>
-
-{level}
-
-</p>
-
-</div>
-
-)
-
+      <div className="skill-list">
+        {technologies.map((tech) => (
+          <span key={tech} className="skill-tag">
+            {tech}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
 }
 
-export default SkillCard
+export default SkillCard;

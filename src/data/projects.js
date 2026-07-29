@@ -1,30 +1,57 @@
 const projects = [
-
   {
+    title: "ORIVEX",
 
-    title: "TRAFIKKING",
-
-    subtitle: "Real-Time Traffic Emergency System",
+    subtitle: "AI Powered Freelance Marketplace",
 
     description:
-      "A futuristic traffic management platform designed to connect citizens, police, and hospitals in real time. Features incident reporting, emergency dashboards, analytics, and scalable backend integration planned with Spring Boot and MongoDB.",
+      "A production-grade freelance marketplace inspired by Upwork and Fiverr. Built with Java Spring Boot, React, JWT Authentication, WebSocket chat, LiveKit video calling, role-based dashboards, and modern scalable architecture.",
 
     tech: [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "Spring Boot (Planned)",
-      "MongoDB (Planned)"
+      "React",
+      "Spring Boot",
+      "Spring Security",
+      "JWT",
+      "MySQL",
+      "WebSocket",
+      "LiveKit"
     ],
 
-    github: "https://github.com/anitya66/trafikking",
+    github: "https://github.com/anitya66/orivex",
+
+    live: "https://orivex-i1qp.vercel.app",
+
+    image: "/orivex.png",
+
+    status: "COMPLETED"
+  },
+
+  {
+    title: "TRAFIKKING X",
+
+    subtitle: "AI Powered Emergency Response Ecosystem",
+
+    description:
+      "An intelligent emergency response platform connecting citizens, ambulances, hospitals, police, and dispatchers in real time using AI recommendations, live tracking, WebSockets, analytics, and scalable microservice-inspired architecture.",
+
+    tech: [
+      "React",
+      "Spring Boot",
+      "JWT",
+      "MySQL",
+      "WebSocket",
+      "Leaflet",
+      "AI"
+    ],
+
+    github: "https://github.com/anitya66/trafikking-x",
+
+    live: "https://trafikking-x.vercel.app",
 
     image: "/trafikking.png",
 
-    status: "IN PROGRESS"
-
+    status: "COMPLETED"
   }
+];
 
-]
-
-export default projects
+export default projects;
