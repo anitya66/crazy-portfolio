@@ -1,139 +1,448 @@
-.navbar{
+/* =========================================================
+   ANITYA ANAND — PREMIUM FUTURISTIC NAVBAR
+   Fixed position, glass morphism, responsive menu
+   ========================================================= */
 
-position:fixed;
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 
-top:0;
+  height: 70px;
 
-width:100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-display:flex;
+  padding: 0 clamp(20px, 6vw, 80px);
 
-justify-content:
-space-between;
+  z-index: 9999;
 
-padding:
-24px 8%;
+  background: linear-gradient(180deg, rgba(5, 7, 8, 0.98), rgba(5, 7, 8, 0.95));
 
-background:
-rgba(
-0,
-0,
-0,
-0.5
-);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 
-backdrop-filter:
-blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 
-z-index:1000;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 
-}
-.logo{
-
-font-size:32px;
-
-font-weight:700;
-
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
 }
 
-.navbar ul{
+/* =========================================================
+   NAVBAR LOGO / BRANDING
+   ========================================================= */
 
-display:flex;
+.logo {
+  position: relative;
 
-gap:40px;
+  display: flex;
+  align-items: center;
 
+  gap: 10px;
+
+  color: var(--text-primary);
+
+  font-size: clamp(16px, 4vw, 20px);
+  font-weight: 700;
+
+  letter-spacing: -0.03em;
+
+  white-space: nowrap;
+
+  text-decoration: none;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
 }
 
-.navbar a{
+.logo:hover {
+  color: var(--neon-green);
 
-transition:.3s;
-
+  transform: translateX(2px);
 }
 
-.navbar a:hover{
+.logo::before {
+  content: "";
 
-color:#5aa8ff;
+  width: 7px;
+  height: 7px;
 
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: var(--neon-green);
+
+  box-shadow:
+    0 0 10px var(--neon-green),
+    0 0 20px rgba(156, 255, 59, 0.5);
+
+  animation: pulse-glow 2s ease-in-out infinite;
 }
 
-.scrolled{
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow:
+      0 0 10px var(--neon-green),
+      0 0 20px rgba(156, 255, 59, 0.5);
+  }
 
-background:
-rgba(
-5,
-5,
-5,
-0.85
-);
-
-backdrop-filter:
-blur(
-30px
-);
-
-box-shadow:
-0 10px 40px
-rgba(
-0,
-0,
-0,
-0.4
-);
-
-transition:.3s;
-
+  50% {
+    opacity: 0.7;
+    box-shadow:
+      0 0 8px var(--neon-green),
+      0 0 15px rgba(156, 255, 59, 0.3);
+  }
 }
 
-.menu{
+/* =========================================================
+   NAVIGATION MENU
+   ========================================================= */
 
-display:none;
+.navbar ul {
+  display: flex;
 
-font-size:30px;
+  align-items: center;
 
-cursor:pointer;
+  gap: 4px;
 
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
 }
 
-/* MOBILE */
-
-@media(max-width:768px){
-
-.menu{
-
-display:block;
-
+.navbar li {
+  position: relative;
 }
 
-.navbar ul{
+.navbar a {
+  position: relative;
 
-display:none;
+  display: flex;
 
+  align-items: center;
+  justify-content: center;
+
+  height: 42px;
+
+  padding: 0 18px;
+
+  color: var(--text-muted);
+
+  font-size: 13px;
+  font-weight: 500;
+
+  letter-spacing: 0.05em;
+
+  text-decoration: none;
+
+  border-radius: 8px;
+
+  transition:
+    color 0.25s ease,
+    background 0.25s ease,
+    transform 0.25s ease;
+
+  text-transform: uppercase;
 }
 
-.open{
+.navbar a:hover {
+  color: var(--neon-green);
 
-display:flex !important;
+  background: rgba(156, 255, 59, 0.08);
 
-position:absolute;
-
-top:80px;
-
-left:0;
-
-width:100%;
-
-padding:40px;
-
-flex-direction:column;
-
-background:
-rgba(
-0,
-0,
-0,
-0.9
-);
-
+  transform: translateY(-2px);
 }
 
+.navbar a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 12px;
+  right: 12px;
+
+  bottom: 6px;
+
+  height: 2px;
+
+  background: var(--neon-green);
+
+  border-radius: 1px;
+
+  transform: scaleX(0);
+
+  transform-origin: center;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+
+  box-shadow: 0 0 8px rgba(156, 255, 59, 0.6);
+}
+
+.navbar a:hover::after {
+  transform: scaleX(1);
+}
+
+/* =========================================================
+   MOBILE MENU BUTTON
+   ========================================================= */
+
+.menu {
+  display: none;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 44px;
+  height: 44px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 8px;
+
+  background: var(--glass);
+
+  color: var(--text-primary);
+
+  cursor: pointer;
+
+  font-size: 20px;
+
+  font-weight: 600;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+
+  position: relative;
+
+  z-index: 10000;
+}
+
+.menu:hover {
+  background: var(--glass-hover);
+
+  border-color: rgba(156, 255, 59, 0.3);
+
+  color: var(--neon-green);
+
+  box-shadow: 0 0 16px rgba(156, 255, 59, 0.2);
+
+  transform: scale(1.05);
+}
+
+.menu::before {
+  content: "☰";
+}
+
+.menu.open::before {
+  content: "✕";
+}
+
+/* =========================================================
+   DESKTOP NAVIGATION
+   ========================================================= */
+
+@media (min-width: 769px) {
+  .navbar ul {
+    display: flex;
+  }
+
+  .menu {
+    display: none !important;
+  }
+}
+
+/* =========================================================
+   TABLET & MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .navbar {
+    height: 64px;
+
+    padding: 0 16px;
+  }
+
+  .logo {
+    font-size: 16px;
+  }
+
+  .logo::before {
+    width: 6px;
+    height: 6px;
+  }
+
+  .navbar > ul {
+    position: absolute;
+
+    top: 64px;
+    left: 0;
+    right: 0;
+
+    display: none;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 2px;
+
+    padding: 12px;
+
+    background: linear-gradient(
+      180deg,
+      rgba(5, 7, 8, 0.99),
+      rgba(7, 9, 11, 0.98)
+    );
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border-bottom: 1px solid var(--border);
+
+    box-shadow:
+      0 20px 40px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+    z-index: 9998;
+
+    animation: slideDown 0.3s ease-out;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .navbar > ul.open {
+    display: flex;
+  }
+
+  .navbar li {
+    width: 100%;
+  }
+
+  .navbar a {
+    width: 100%;
+
+    height: 48px;
+
+    justify-content: flex-start;
+
+    padding: 0 16px;
+
+    border-radius: 8px;
+
+    font-size: 13px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.05em;
+  }
+
+  .navbar a:hover {
+    background: rgba(156, 255, 59, 0.1);
+
+    color: var(--neon-green);
+  }
+
+  .navbar a::after {
+    display: none;
+  }
+
+  .menu {
+    display: flex;
+  }
+}
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 400px) {
+  .navbar {
+    height: 60px;
+
+    padding: 0 12px;
+  }
+
+  .logo {
+    font-size: 15px;
+  }
+
+  .logo::before {
+    width: 5px;
+    height: 5px;
+  }
+
+  .menu {
+    width: 40px;
+    height: 40px;
+
+    font-size: 18px;
+  }
+
+  .navbar > ul {
+    top: 60px;
+
+    padding: 8px;
+
+    gap: 0;
+  }
+
+  .navbar a {
+    height: 44px;
+
+    padding: 0 12px;
+
+    font-size: 12px;
+  }
+}
+
+/* =========================================================
+   SCROLLED STATE
+   ========================================================= */
+
+.navbar.scrolled {
+  background: linear-gradient(180deg, rgba(5, 7, 8, 0.99), rgba(5, 7, 8, 0.96));
+
+  border-color: rgba(156, 255, 59, 0.1);
+
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar,
+  .navbar *,
+  .navbar::after,
+  .logo::before {
+    animation: none !important;
+    transition: none !important;
+  }
 }

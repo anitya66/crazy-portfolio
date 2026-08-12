@@ -1,103 +1,79 @@
-import { useState } from "react"
-import profile from "../data/profile"
+import { useState, useEffect } from "react";
+import profile from "../data/profile";
 
-function Navbar(){
+function Navbar() {
+  const [open, setOpen] = useState(false);
 
-const[
-open,
-setOpen
-]=useState(false)
+  useEffect(() => {
+    const handleEscape = (e) => {
+      if (e.key === "Escape") setOpen(false);
+    };
 
-return(
+    const handleClickOutside = (e) => {
+      if (!e.target.closest(".navbar")) setOpen(false);
+    };
 
-<nav className="navbar">
+    if (open) {
+      document.addEventListener("keydown", handleEscape);
+      document.addEventListener("click", handleClickOutside);
+    }
 
-<div className="logo">
+    return () => {
+      document.removeEventListener("keydown", handleEscape);
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [open]);
 
-{profile.name}
+  const handleNavClick = () => {
+    setOpen(false);
+  };
 
-</div>
+  return (
+    <nav className="navbar">
+      <div className="logo">{profile.name}</div>
 
-<div
-className="menu"
+      <div
+        className={`menu ${open ? "open" : ""}`}
+        onClick={() => setOpen(!open)}
+        role="button"
+        tabIndex={0}
+        aria-label="Toggle menu"
+        aria-expanded={open}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            setOpen(!open);
+          }
+        }}
+      ></div>
 
-onClick={()=>
+      <ul className={open ? "open" : ""}>
+        <li>
+          <a href="#home" onClick={handleNavClick}>
+            Home
+          </a>
+        </li>
 
-setOpen(
-!open
-)
+        <li>
+          <a href="#skills" onClick={handleNavClick}>
+            Skills
+          </a>
+        </li>
 
+        <li>
+          <a href="#projects" onClick={handleNavClick}>
+            Projects
+          </a>
+        </li>
+
+        <li>
+          <a href="#contact" onClick={handleNavClick}>
+            Contact
+          </a>
+        </li>
+      </ul>
+    </nav>
+  );
 }
 
->
-
-☰
-
-</div>
-
-<ul
-className={
-
-open
-
-?
-
-"open"
-
-:
-
-""
-
-}
-
->
-
-<li>
-
-<a href="#home">
-
-Home
-
-</a>
-
-</li>
-
-<li>
-
-<a href="#skills">
-
-Skills
-
-</a>
-
-</li>
-
-<li>
-
-<a href="#projects">
-
-Projects
-
-</a>
-
-</li>
-
-<li>
-
-<a href="#contact">
-
-Contact
-
-</a>
-
-</li>
-
-</ul>
-
-</nav>
-
-)
-
-}
-
-export default Navbar
+export default Navbar;

@@ -1,117 +1,381 @@
-.bg{
+/* =========================================================
+   FUTURISTIC AMBIENT BACKGROUND
+   ========================================================= */
 
-position:fixed;
+.bg {
+  position: fixed;
+  inset: 0;
 
-inset:0;
+  width: 100%;
+  height: 100%;
 
-z-index:-1;
+  z-index: -10;
 
-overflow:hidden;
+  overflow: hidden;
 
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 12% 15%,
+      rgba(183, 255, 60, 0.055),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 88% 80%,
+      rgba(72, 245, 208, 0.04),
+      transparent 30%
+    ),
+    #050606;
 }
 
-.orb{
 
-position:absolute;
+/* =========================================================
+   TECHNICAL GRID
+   ========================================================= */
 
-border-radius:50%;
+.bg::before {
+  content: "";
 
-filter:blur(100px);
+  position: absolute;
 
-animation:
+  inset: 0;
 
-move 12s infinite
-ease-in-out;
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    );
 
+  background-size:
+    70px 70px;
+
+  mask-image:
+    radial-gradient(
+      ellipse at center,
+      black 20%,
+      transparent 80%
+    );
+
+  -webkit-mask-image:
+    radial-gradient(
+      ellipse at center,
+      black 20%,
+      transparent 80%
+    );
+
+  opacity: 0.5;
 }
 
-.orb1{
 
-height:500px;
+/* =========================================================
+   VERTICAL SCAN / ATMOSPHERIC LIGHT
+   ========================================================= */
 
-width:500px;
+.bg::after {
+  content: "";
 
-background:
+  position: absolute;
 
-#2667ff;
+  inset: 0;
 
-top:-100px;
+  background:
+    linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(183, 255, 60, 0.018) 45%,
+      transparent 100%
+    );
 
-left:-150px;
+  background-size: 100% 180px;
 
-opacity:.35;
+  animation:
+    scan 10s linear infinite;
 
+  opacity: 0.35;
 }
 
-.orb2{
 
-height:400px;
+/* =========================================================
+   AMBIENT ORBS
+   ========================================================= */
 
-width:400px;
+.orb {
+  position: absolute;
 
-background:
+  border-radius: 50%;
 
-#8b5cf6;
+  pointer-events: none;
 
-bottom:-100px;
+  filter: blur(110px);
 
-right:-80px;
+  will-change: transform;
 
-opacity:.3;
-
-animation-delay:
-
--4s;
-
+  animation:
+    ambientMove
+    16s
+    var(--ease)
+    infinite alternate;
 }
 
-.orb3{
 
-height:350px;
+/* =========================================================
+   GREEN AURA
+   ========================================================= */
 
-width:350px;
+.orb1 {
+  width: 520px;
+  height: 520px;
 
-background:
+  top: -220px;
+  left: -180px;
 
-#00c2ff;
+  background:
+    radial-gradient(
+      circle,
+      rgba(183, 255, 60, 0.18),
+      rgba(183, 255, 60, 0.035) 50%,
+      transparent 72%
+    );
 
-top:40%;
-
-left:45%;
-
-opacity:.25;
-
-animation-delay:
-
--8s;
-
+  opacity: 0.8;
 }
 
-@keyframes move{
 
-0%{
+/* =========================================================
+   CYAN AURA
+   ========================================================= */
 
-transform:
-translate(0,0);
+.orb2 {
+  width: 480px;
+  height: 480px;
 
+  right: -180px;
+  bottom: -180px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(72, 245, 208, 0.12),
+      rgba(72, 245, 208, 0.025) 50%,
+      transparent 72%
+    );
+
+  animation-delay: -5s;
+
+  opacity: 0.75;
 }
 
-50%{
 
-transform:
+/* =========================================================
+   CENTER AURA
+   ========================================================= */
 
-translate(
-40px,
--60px
-);
+.orb3 {
+  width: 400px;
+  height: 400px;
 
+  top: 38%;
+  left: 48%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(183, 255, 60, 0.06),
+      rgba(72, 245, 208, 0.035) 45%,
+      transparent 72%
+    );
+
+  animation-delay: -9s;
+
+  opacity: 0.7;
 }
 
-100%{
 
-transform:
-translate(0,0);
+/* =========================================================
+   AMBIENT MOVEMENT
+   ========================================================= */
 
+@keyframes ambientMove {
+  0% {
+    transform:
+      translate3d(
+        -20px,
+        10px,
+        0
+      )
+      scale(1);
+  }
+
+  50% {
+    transform:
+      translate3d(
+        45px,
+        -35px,
+        0
+      )
+      scale(1.08);
+  }
+
+  100% {
+    transform:
+      translate3d(
+        -10px,
+        30px,
+        0
+      )
+      scale(0.96);
+  }
 }
 
+
+/* =========================================================
+   SCAN ANIMATION
+   ========================================================= */
+
+@keyframes scan {
+  0% {
+    background-position:
+      0 -180px;
+  }
+
+  100% {
+    background-position:
+      0 100vh;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .bg::before {
+    background-size:
+      55px 55px;
+
+    opacity: 0.35;
+  }
+
+  .orb1 {
+    width: 420px;
+    height: 420px;
+
+    top: -180px;
+    left: -180px;
+  }
+
+  .orb2 {
+    width: 380px;
+    height: 380px;
+
+    right: -160px;
+    bottom: -160px;
+  }
+
+  .orb3 {
+    width: 320px;
+    height: 320px;
+
+    top: 42%;
+    left: 40%;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .bg::before {
+    background-size:
+      42px 42px;
+
+    opacity: 0.22;
+  }
+
+  .bg::after {
+    opacity: 0.2;
+  }
+
+  .orb {
+    filter: blur(90px);
+  }
+
+  .orb1 {
+    width: 300px;
+    height: 300px;
+
+    top: -130px;
+    left: -130px;
+  }
+
+  .orb2 {
+    width: 280px;
+    height: 280px;
+
+    right: -120px;
+    bottom: -120px;
+  }
+
+  .orb3 {
+    width: 240px;
+    height: 240px;
+
+    top: 45%;
+    left: 35%;
+  }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  .bg::before {
+    opacity: 0.16;
+  }
+
+  .orb {
+    filter: blur(75px);
+  }
+
+  .orb1 {
+    width: 240px;
+    height: 240px;
+  }
+
+  .orb2 {
+    width: 220px;
+    height: 220px;
+  }
+
+  .orb3 {
+    width: 190px;
+    height: 190px;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .orb,
+  .bg::after {
+    animation: none;
+  }
 }

@@ -1,121 +1,488 @@
-.social-dock{
-    position: fixed;
+/* =========================================================
+   ANITYA ANAND — FUTURISTIC SOCIAL DOCK
+   Compact icon-only dock with subtle hover tooltip.
+   ========================================================= */
 
-    right: 32px;
-    bottom: 50%;
+.social-dock {
+  position: fixed;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
 
-    transform: translateY(50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
+  padding: 10px;
 
-    padding: 14px;
+  border-radius: 16px;
+  background: rgba(8, 11, 14, 0.82);
+  border: 1px solid var(--border);
+  box-shadow:
+    0 18px 50px rgba(0, 0, 0, 0.38),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 0 18px rgba(90, 168, 255, 0.08);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
 
-    border-radius: 999px;
+  z-index: 1000;
+  overflow: visible;
 
-    background: rgba(18,18,24,.72);
-    backdrop-filter: blur(24px);
-
-    border: 1px solid rgba(255,255,255,.08);
-
-    box-shadow: 0 12px 40px rgba(0,0,0,.35);
-
-    z-index: 1000;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
-.dock-item{
-
-    width:54px;
-
-    height:54px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    position:relative;
-
-    border-radius:50%;
-
-    color:white;
-
-    background:rgba(255,255,255,.04);
-
-    transition:all .3s ease;
-
+.dock-items {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-.dock-item:hover{
+.dock-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    transform:translateY(-8px) scale(1.1);
+  width: 40px;
+  height: 40px;
 
-    background:linear-gradient(
-        135deg,
-        #5aa8ff,
-        #8b5cf6
-    );
-
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--text-muted);
+  background: var(--glass);
+  border: 1px solid var(--border);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  overflow: visible;
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease,
+    opacity 0.25s ease;
+  outline: none;
 }
 
-.dock-tooltip{
-
-    position:absolute;
-
-    bottom:68px;
-
-    left:50%;
-
-    transform:translateX(-50%);
-
-    padding:8px 14px;
-
-    border-radius:999px;
-
-    background:#111827;
-
-    color:white;
-
-    font-size:13px;
-
-    opacity:0;
-
-    pointer-events:none;
-
-    white-space:nowrap;
-
-    transition:.25s;
+.dock-item::after {
+  content: attr(data-label);
+  position: absolute;
+  right: calc(100% + 10px);
+  top: 50%;
+  transform: translateY(-50%) translateX(8px);
+  padding: 6px 8px;
+  border-radius: 8px;
+  background: rgba(10, 14, 17, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 18px rgba(90, 168, 255, 0.12);
+  color: var(--text-primary);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
 }
 
-.dock-item:hover .dock-tooltip{
-
-    opacity:1;
-
-}
-@media(max-width:768px){
-
-    .social-dock{
-
-        right: auto;
-        left: 50%;
-        bottom: 18px;
-
-        transform: translateX(-50%);
-
-        flex-direction: row;
-
-        gap:10px;
-
-        padding:10px 14px;
-
-    }
-
+.dock-item:hover::after,
+.dock-item:focus-visible::after {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
 }
 
-.dock-icon{
-    font-size:24px;
-    line-height:1;
+.dock-item:focus-visible {
+  outline: 2px solid var(--neon-green);
+  outline-offset: 2px;
+}
+
+.dock-icon {
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+  color: inherit;
+}
+
+.dock-icon svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+  stroke-width: 1.5;
+}
+
+.dock-item:hover {
+  transform: translateX(-2px);
+  color: var(--neon-green);
+  background: var(--glass-hover);
+  border-color: rgba(156, 255, 59, 0.4);
+  box-shadow: 0 8px 22px rgba(156, 255, 59, 0.18);
+}
+
+.dock-item:hover .dock-icon {
+  transform: scale(1.08);
+}
+
+.dock-github:hover {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.28);
+  box-shadow: 0 8px 22px rgba(255, 255, 255, 0.12);
+}
+
+.dock-linkedin:hover {
+  color: var(--blue);
+  border-color: rgba(90, 168, 255, 0.4);
+  box-shadow: 0 8px 22px rgba(90, 168, 255, 0.18);
+}
+
+.dock-mail:hover {
+  color: #ff6b6b;
+  border-color: rgba(255, 107, 107, 0.4);
+  box-shadow: 0 8px 22px rgba(255, 107, 107, 0.14);
+}
+
+.dock-whatsapp:hover {
+  color: #31a24c;
+  border-color: rgba(49, 162, 76, 0.4);
+  box-shadow: 0 8px 22px rgba(49, 162, 76, 0.15);
+}
+
+.dock-resume:hover {
+  color: var(--purple);
+  border-color: rgba(108, 92, 255, 0.4);
+  box-shadow: 0 8px 22px rgba(108, 92, 255, 0.15);
+}
+
+@media (max-width: 1100px) {
+  .social-dock {
+    right: 14px;
+    padding: 8px;
+  }
+
+  .dock-item {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+@media (max-width: 768px) {
+  .social-dock {
+    top: auto;
+    bottom: 16px;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    width: min(88vw, 360px);
+    padding: 8px 10px;
+    border-radius: 14px;
+  }
+
+  .dock-items {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    gap: 6px;
+  }
+
+  .dock-item {
+    width: 40px;
+    height: 40px;
+    flex: 1 1 auto;
+    border-radius: 10px;
+  }
+
+  .dock-item::after {
+    right: 50%;
+    top: auto;
+    bottom: calc(100% + 8px);
+    transform: translateX(50%) translateY(6px);
+  }
+
+  .dock-item:hover::after,
+  .dock-item:focus-visible::after {
+    transform: translateX(50%) translateY(0);
+  }
+}
+
+@media (max-width: 480px) {
+  .social-dock {
+    bottom: 14px;
+    width: min(90vw, 320px);
+    padding: 6px 8px;
+  }
+
+  .dock-item {
+    width: 36px;
+    height: 36px;
+    border-radius: 9px;
+  }
+
+  .dock-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .dock-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .social-dock,
+  .dock-item,
+  .dock-item::after,
+  .dock-icon {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* =========================================================
+   HEADER (Desktop only)
+   ========================================================= */
+
+.dock-header {
+  display: none;
+}
+
+/* =========================================================
+   DIVIDER (Desktop only)
+   ========================================================= */
+
+.dock-line {
+  display: none;
+}
+
+/* =========================================================
+   FOOTER (Desktop only)
+   ========================================================= */
+
+.dock-footer {
+  display: none;
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+  .social-dock {
+    right: 14px;
+
+    width: 64px;
+
+    padding: 10px 6px;
+
+    gap: 10px;
+  }
+
+  .dock-item {
+    width: 50px;
+    height: 50px;
+
+    border-radius: 9px;
+  }
+
+  .dock-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .dock-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .dock-label {
+    font-size: 6px;
+  }
+}
+
+/* =========================================================
+   MOBILE - HORIZONTAL DOCK
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .social-dock {
+    top: auto;
+    bottom: 20px;
+    right: auto;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: auto;
+
+    padding: 8px 10px;
+
+    flex-direction: row;
+
+    gap: 6px;
+
+    border-radius: 12px;
+
+    z-index: 9998;
+  }
+
+  .social-dock::before,
+  .social-dock::after {
+    display: none;
+  }
+
+  .dock-items {
+    flex-direction: row;
+
+    gap: 6px;
+  }
+
+  .dock-item {
+    width: 44px;
+    height: 44px;
+
+    border-radius: 8px;
+
+    gap: 0;
+
+    padding: 0;
+
+    position: relative;
+  }
+
+  .dock-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .dock-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .dock-label {
+    position: absolute;
+
+    bottom: -18px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    font-size: 8px;
+
+    white-space: nowrap;
+
+    background: var(--bg-secondary);
+
+    padding: 2px 6px;
+
+    border-radius: 4px;
+
+    border: 1px solid var(--border);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition: opacity 0.2s ease;
+
+    display: none;
+  }
+
+  .dock-item:hover {
+    transform: translateY(-3px) scale(1.06);
+  }
+
+  .dock-item:hover .dock-label {
+    display: block;
+  }
+}
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 480px) {
+  .social-dock {
+    bottom: 16px;
+
+    padding: 6px 8px;
+
+    gap: 4px;
+  }
+
+  .dock-item {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 7px;
+  }
+
+  .dock-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .dock-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .dock-label {
+    font-size: 6px;
+  }
+}
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 360px) {
+  .social-dock {
+    bottom: 12px;
+
+    padding: 5px 6px;
+
+    gap: 3px;
+  }
+
+  .dock-item {
+    width: 36px;
+    height: 36px;
+
+    border-radius: 6px;
+  }
+
+  .dock-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .dock-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .social-dock,
+  .social-dock *,
+  .dock-item {
+    animation: none !important;
+    transition: none !important;
+  }
 }
