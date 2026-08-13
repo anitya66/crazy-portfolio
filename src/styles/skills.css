@@ -503,6 +503,16 @@
     padding-bottom: 80px;
   }
 
+  .skills-heading,
+  .skills-grid,
+  .skill-wrapper,
+  .skill-card,
+  .skill-list {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
   .skills-heading {
     margin-bottom: 50px;
   }
@@ -563,6 +573,8 @@
 
   .skill-header h3 {
     font-size: 18px;
+
+    word-break: break-word;
   }
 
   .skill-list {
@@ -575,6 +587,9 @@
     font-size: 9px;
 
     border-radius: 6px;
+
+    white-space: normal;
+    line-height: 1.4;
   }
 
   .skill-card::after {

@@ -184,6 +184,7 @@
     width: min(88vw, 360px);
     padding: 8px 10px;
     border-radius: 14px;
+    z-index: 1100;
   }
 
   .dock-items {
@@ -198,6 +199,7 @@
     height: 40px;
     flex: 1 1 auto;
     border-radius: 10px;
+    touch-action: manipulation;
   }
 
   .dock-item::after {
@@ -218,6 +220,10 @@
     bottom: 14px;
     width: min(90vw, 320px);
     padding: 6px 8px;
+  }
+
+  .dock-items {
+    gap: 4px;
   }
 
   .dock-item {

@@ -384,10 +384,32 @@ button:focus-visible {
     font-size: 15px;
   }
 
+  * {
+    min-width: 0;
+  }
+
   section {
     min-height: auto;
 
     padding: 88px 20px;
+  }
+
+  section > * {
+    max-width: 100%;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span,
+  a,
+  button {
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 
   .section-title {

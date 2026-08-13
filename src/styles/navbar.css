@@ -279,7 +279,13 @@
   }
 
   .logo {
+    max-width: calc(100% - 72px);
+
     font-size: 16px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .logo::before {
@@ -374,6 +380,13 @@
 
   .menu {
     display: flex;
+    touch-action: manipulation;
+  }
+
+  .navbar a {
+    min-height: 44px;
+
+    touch-action: manipulation;
   }
 }
 
@@ -389,6 +402,8 @@
   }
 
   .logo {
+    max-width: calc(100% - 62px);
+
     font-size: 15px;
   }
 
